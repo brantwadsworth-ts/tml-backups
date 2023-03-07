@@ -1,0 +1,128 @@
+guid: 42256f0f-afa4-4ddc-af30-ed99902d2a70
+table:
+  name: pact_case_tat_latest
+  schema: poc
+  db_table: pact_case_tat_latest
+  connection:
+    name: Denodo POC
+    fqn: 9b2795a1-ae24-40f9-aae5-c1f9ad9f2851
+  columns:
+  - name: case_id
+    db_column_name: case_id
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: tat_type
+    db_column_name: tat_type
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: r2cn_tat_startdate
+    db_column_name: r2cn_tat_startdate
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: r2cn_tat_enddate
+    db_column_name: r2cn_tat_enddate
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: r2cn_tat
+    db_column_name: r2cn_tat
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: bi_tat_startdate
+    db_column_name: bi_tat_startdate
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: entire_bi_tat_enddate
+    db_column_name: entire_bi_tat_enddate
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: entire_bi_tat
+    db_column_name: entire_bi_tat
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: standard_bi_tat_enddate
+    db_column_name: standard_bi_tat_enddate
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: standard_bi_tat
+    db_column_name: standard_bi_tat
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: validate_bi_start_date
+    db_column_name: validate_bi_start_date
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: validate_bi_end_date
+    db_column_name: validate_bi_end_date
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: validate_bi_tat
+    db_column_name: validate_bi_tat
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: followup_pa_start_date
+    db_column_name: followup_pa_start_date
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: followup_pa_end_date
+    db_column_name: followup_pa_end_date
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: followup_pa_tat
+    db_column_name: followup_pa_tat
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: processing_date
+    db_column_name: processing_date
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR

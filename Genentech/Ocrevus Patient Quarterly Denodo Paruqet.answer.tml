@@ -1,0 +1,35 @@
+guid: 6688e799-a46e-4454-8d60-0d516401995b
+answer:
+  name: Ocrevus Patient Quarterly Denodo Paruqet
+  tables:
+  - id: AS Master Denodo POC (Parquet)
+    name: AS Master Denodo POC (Parquet)
+    fqn: 37ddc465-36eb-40ea-a756-e51fbde2c822
+  search_query: "[Product].Ocrevus [# of Patients] [Sr Created Date].quarterly"
+  answer_columns:
+  - name: '# of Patients'
+  - name: Quarter(Sr Created Date)
+  table:
+    table_columns:
+    - column_id: Quarter(Sr Created Date)
+      show_headline: false
+    - column_id: '# of Patients'
+      show_headline: false
+    ordered_column_ids:
+    - Quarter(Sr Created Date)
+    - '# of Patients'
+    client_state: ""
+    client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+  chart:
+    type: LINE
+    chart_columns:
+    - column_id: Quarter(Sr Created Date)
+    - column_id: '# of Patients'
+    axis_configs:
+    - x:
+      - Quarter(Sr Created Date)
+      "y":
+      - '# of Patients'
+    client_state: ""
+    client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"responsiveLayoutPreference\": \"AUTO_ON\",\"chartSpecific\": {}},\"axisProperties\": [{\"id\": \"1c087b33-2f63-44ac-a203-1e047ff0741a\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"# of Patients\"],\"isOpposite\": false}},{\"id\": \"f8725489-7f87-49b7-a4f9-1ad02eb7a84c\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"Quarter(Sr Created Date)\"]}}],\"systemSeriesColors\": [{\"serieName\": \"# of Patients\",\"color\": \"#2E75F0\"}]}"
+  display_mode: CHART_MODE

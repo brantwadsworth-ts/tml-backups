@@ -1,0 +1,240 @@
+guid: aa4fc9ed-90cc-4c6f-a95d-880f2f48813e
+table:
+  name: pact_co_pay_assistance_latest
+  schema: poc
+  db_table: pact_co_pay_assistance_latest
+  connection:
+    name: Denodo POC
+    fqn: 9b2795a1-ae24-40f9-aae5-c1f9ad9f2851
+  columns:
+  - name: copay_assistance_sf_id
+    db_column_name: copay_assistance_sf_id
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: copay_assistance_id
+    db_column_name: copay_assistance_id
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: copay_createddate
+    db_column_name: copay_createddate
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: systemmodstamp
+    db_column_name: systemmodstamp
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: copay_foundation_sf_id
+    db_column_name: copay_foundation_sf_id
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: copay_product_catalog
+    db_column_name: copay_product_catalog
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: caf_disease_state
+    db_column_name: caf_disease_state
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: enrollment_date
+    db_column_name: enrollment_date
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: member_id
+    db_column_name: member_id
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: copay_card_program_sf_id
+    db_column_name: copay_card_program_sf_id
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: copay_card_program_name
+    db_column_name: copay_card_program_name
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: copay_card_type
+    db_column_name: copay_card_type
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: co_pay_type
+    db_column_name: co_pay_type
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: foundation_fax
+    db_column_name: foundation_fax
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: foundation_hours
+    db_column_name: foundation_hours
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: foundation_phone
+    db_column_name: foundation_phone
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: foundation_website
+    db_column_name: foundation_website
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: funds_available_cpcd
+    db_column_name: funds_available_cpcd
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: ismigrated
+    db_column_name: ismigrated
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: foundation_name_text
+    db_column_name: foundation_name_text
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: program_fax
+    db_column_name: program_fax
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: program_hours
+    db_column_name: program_hours
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: program_phone
+    db_column_name: program_phone
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: program_website
+    db_column_name: program_website
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: reason_for_selecting_caf
+    db_column_name: reason_for_selecting_caf
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: case_sf_id
+    db_column_name: case_sf_id
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: status
+    db_column_name: status
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: supported_insurances
+    db_column_name: supported_insurances
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: direct_enrollment
+    db_column_name: direct_enrollment
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: processing_date
+    db_column_name: processing_date
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: num_of_ca
+    db_column_name: num_of_ca
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: INT32
+  joins_with:
+  - name: CoPayAssistance-CaseRSP
+    destination:
+      name: mv_tbl__pact_case_mview__0
+      fqn: 3bed7094-66f8-4762-b108-e3f80d45ec24
+    "on": "[pact_co_pay_assistance_latest::case_sf_id] = [mv_tbl__pact_case_mview__0::case_sf_id]"
+    type: INNER
+  - name: CoPayAssistance-CaseRS
+    destination:
+      name: redshiftpublic_pact_case_mview
+      fqn: b01fca3f-5d73-4d9e-bff0-a5841465acca
+    "on": "([pact_co_pay_assistance_latest::case_sf_id] = [redshiftpublic_pact_case_mview::case_sf_id])"
+    type: INNER

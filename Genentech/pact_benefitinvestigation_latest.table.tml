@@ -1,0 +1,288 @@
+guid: ca0e8f5e-14f7-4e90-8bad-9fe832be087b
+table:
+  name: pact_benefitinvestigation_latest
+  schema: poc
+  db_table: pact_benefitinvestigation_latest
+  connection:
+    name: Denodo POC
+    fqn: 9b2795a1-ae24-40f9-aae5-c1f9ad9f2851
+  columns:
+  - name: bi_sf_id
+    db_column_name: bi_sf_id
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: service_request
+    db_column_name: service_request
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: sr_insurance_id
+    db_column_name: sr_insurance_id
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: name
+    db_column_name: name
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: bi_created_by
+    db_column_name: bi_created_by
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: bi_created_user_type_c
+    db_column_name: bi_created_user_type_c
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: bi_req_status
+    db_column_name: bi_req_status
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: bi_completion_date
+    db_column_name: bi_completion_date
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: bi_type
+    db_column_name: bi_type
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: billing_instructions
+    db_column_name: billing_instructions
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: cob_benefit_design
+    db_column_name: cob_benefit_design
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: ebi_enabled
+    db_column_name: ebi_enabled
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: BOOL
+  - name: payer_name
+    db_column_name: payer_name
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: payer_operator_name
+    db_column_name: payer_operator_name
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: payer_operator_phone
+    db_column_name: payer_operator_phone
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: plan_name
+    db_column_name: plan_name
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: pre_benefit_manager_name
+    db_column_name: pre_benefit_manager_name
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: pre_benefit_manager_phone
+    db_column_name: pre_benefit_manager_phone
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: reference
+    db_column_name: reference
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: display
+    db_column_name: display
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: foundation_bi
+    db_column_name: foundation_bi
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: insurance_id
+    db_column_name: insurance_id
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: systemmodstamp
+    db_column_name: systemmodstamp
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: overall_bi_status
+    db_column_name: overall_bi_status
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: bi_completed_by
+    db_column_name: bi_completed_by
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: bi_method
+    db_column_name: bi_method
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: ai_bi_notes
+    db_column_name: ai_bi_notes
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: ai_date_time_received
+    db_column_name: ai_date_time_received
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: ai_date_time_sent
+    db_column_name: ai_date_time_sent
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: ai_failure_message
+    db_column_name: ai_failure_message
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: ai_transaction_id
+    db_column_name: ai_transaction_id
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: pa_status
+    db_column_name: pa_status
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: vendor_diagnosis_codes_for_bi
+    db_column_name: vendor_diagnosis_codes_for_bi
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: processing_date
+    db_column_name: processing_date
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: num_of_bi
+    db_column_name: num_of_bi
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: INT32
+  - name: bi_completed_by_id
+    db_column_name: bi_completed_by_id
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: created_date
+    db_column_name: created_date
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: DATE_TIME
+  joins_with:
+  - name: BenefitInvestigation-Insurance
+    destination:
+      name: pact_insurance_latest
+      fqn: cd7e984d-fcdf-4ad6-b26d-93b3266d57ab
+    "on": "([pact_benefitinvestigation_latest::insurance_id] = [pact_insurance_latest::insurance_sf_id])"
+    type: INNER
+  - name: BenefitInvestigation-CaseRSP
+    destination:
+      name: mv_tbl__pact_case_mview__0
+      fqn: 3bed7094-66f8-4762-b108-e3f80d45ec24
+    "on": "[pact_benefitinvestigation_latest::service_request] = [mv_tbl__pact_case_mview__0::case_sf_id]"
+    type: INNER
+  - name: BenefitInvestigation-CaseRS
+    destination:
+      name: redshiftpublic_pact_case_mview
+      fqn: b01fca3f-5d73-4d9e-bff0-a5841465acca
+    "on": "([pact_benefitinvestigation_latest::service_request] = [redshiftpublic_pact_case_mview::case_sf_id])"
+    type: INNER

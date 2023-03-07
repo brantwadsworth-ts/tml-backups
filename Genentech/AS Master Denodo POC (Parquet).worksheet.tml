@@ -1,0 +1,785 @@
+guid: 37ddc465-36eb-40ea-a756-e51fbde2c822
+worksheet:
+  name: AS Master Denodo POC (Parquet)
+  tables:
+  - name: mv_tbl__pact_case_mview__0
+    fqn: 3bed7094-66f8-4762-b108-e3f80d45ec24
+  - name: pact_benefitinvestigation_latest
+    fqn: ca0e8f5e-14f7-4e90-8bad-9fe832be087b
+  - name: pact_case_tat_latest
+    fqn: 42256f0f-afa4-4ddc-af30-ed99902d2a70
+  - name: pact_co_pay_assistance_latest
+    fqn: aa4fc9ed-90cc-4c6f-a95d-880f2f48813e
+  - name: pact_document_latest
+    fqn: d4870306-c62a-439e-b509-51745a9298c2
+  - name: pact_fulfillment_latest
+    fqn: a05b1d8b-9f58-48a0-b10f-b4b3abaaf6d1
+  - name: pact_sr_activity_latest
+    fqn: e5a88750-70d1-4bc9-a0bf-889cd45527d8
+  - name: pact_sr_document_latest
+    fqn: fcd6c6a6-eb5c-4991-b4f4-cab54ccfca4d
+  - name: patient_latest_parquet
+    fqn: 4d629c34-aeff-447f-a052-d1301c7e10b9
+  joins:
+  - name: CaseRSP-Patient
+    source: mv_tbl__pact_case_mview__0
+    destination: patient_latest_parquet
+    type: INNER
+    is_one_to_one: false
+  - name: CaseRSP-CaseTAT
+    source: mv_tbl__pact_case_mview__0
+    destination: pact_case_tat_latest
+    type: INNER
+    is_one_to_one: false
+  - name: BenefitInvestigation-CaseRSP
+    source: pact_benefitinvestigation_latest
+    destination: mv_tbl__pact_case_mview__0
+    type: INNER
+    is_one_to_one: false
+  - name: CoPayAssistance-CaseRSP
+    source: pact_co_pay_assistance_latest
+    destination: mv_tbl__pact_case_mview__0
+    type: INNER
+    is_one_to_one: false
+  - name: Fulfillment-CaseRSP
+    source: pact_fulfillment_latest
+    destination: mv_tbl__pact_case_mview__0
+    type: INNER
+    is_one_to_one: false
+  - name: Activity-CaseRSP
+    source: pact_sr_activity_latest
+    destination: mv_tbl__pact_case_mview__0
+    type: INNER
+    is_one_to_one: false
+  - name: SR Document-CaseRSP
+    source: pact_sr_document_latest
+    destination: mv_tbl__pact_case_mview__0
+    type: INNER
+    is_one_to_one: false
+  - name: SR Document-Document
+    source: pact_sr_document_latest
+    destination: pact_document_latest
+    type: INNER
+    is_one_to_one: false
+  table_paths:
+  - id: mv_tbl__pact_case_mview__0_1
+    table: mv_tbl__pact_case_mview__0
+    join_path:
+    - join:
+      - Activity-CaseRSP
+    - join:
+      - Fulfillment-CaseRSP
+    - join:
+      - SR Document-CaseRSP
+    - join:
+      - BenefitInvestigation-CaseRSP
+    - join:
+      - CoPayAssistance-CaseRSP
+  - id: pact_benefitinvestigation_latest_1
+    table: pact_benefitinvestigation_latest
+    join_path:
+    - {}
+  - id: pact_case_tat_latest_1
+    table: pact_case_tat_latest
+    join_path:
+    - join:
+      - BenefitInvestigation-CaseRSP
+      - CaseRSP-CaseTAT
+    - join:
+      - Activity-CaseRSP
+      - CaseRSP-CaseTAT
+    - join:
+      - SR Document-CaseRSP
+      - CaseRSP-CaseTAT
+    - join:
+      - Fulfillment-CaseRSP
+      - CaseRSP-CaseTAT
+    - join:
+      - CoPayAssistance-CaseRSP
+      - CaseRSP-CaseTAT
+  - id: pact_co_pay_assistance_latest_1
+    table: pact_co_pay_assistance_latest
+    join_path:
+    - {}
+  - id: pact_document_latest_1
+    table: pact_document_latest
+    join_path:
+    - join:
+      - SR Document-Document
+  - id: pact_fulfillment_latest_1
+    table: pact_fulfillment_latest
+    join_path:
+    - {}
+  - id: pact_sr_activity_latest_1
+    table: pact_sr_activity_latest
+    join_path:
+    - {}
+  - id: pact_sr_document_latest_1
+    table: pact_sr_document_latest
+    join_path:
+    - {}
+  - id: patient_latest_parquet_1
+    table: patient_latest_parquet
+    join_path:
+    - join:
+      - CoPayAssistance-CaseRSP
+      - CaseRSP-Patient
+    - join:
+      - SR Document-CaseRSP
+      - CaseRSP-Patient
+    - join:
+      - BenefitInvestigation-CaseRSP
+      - CaseRSP-Patient
+    - join:
+      - Activity-CaseRSP
+      - CaseRSP-Patient
+    - join:
+      - Fulfillment-CaseRSP
+      - CaseRSP-Patient
+  formulas:
+  - name: '# of Activities'
+    expr: "sum ( [pact_sr_activity_latest_1::num_of_task] )"
+    was_auto_generated: false
+  - name: '# of BI''s'
+    expr: "unique count ( [pact_benefitinvestigation_latest_1::bi_sf_id] )"
+    was_auto_generated: false
+  - name: '# of Copay''s'
+    expr: "unique count ( [pact_co_pay_assistance_latest_1::copay_assistance_id] )"
+    was_auto_generated: false
+  - name: '# of Fulfillment''s'
+    expr: "sum ( [pact_fulfillment_latest_1::num_of_fulfillment] )"
+    was_auto_generated: false
+  - name: '# of Patients'
+    expr: "unique_count_if ( [patient_latest_parquet_1::consent_only_patient] = 'false' or isnull ( [patient_latest_parquet_1::consent_only_patient] ) , [patient_latest_parquet_1::master_patient_sf_id] )"
+    was_auto_generated: false
+  - name: '# of SR''s'
+    expr: "unique count ( [mv_tbl__pact_case_mview__0_1::case_sf_id] )"
+    was_auto_generated: false
+  worksheet_columns:
+  - name: Sr Created Date
+    column_id: mv_tbl__pact_case_mview__0_1::sr_created_date
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+      calendar: calendar
+  - name: New Patient
+    column_id: mv_tbl__pact_case_mview__0_1::new_patient
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Prescriber Id
+    column_id: mv_tbl__pact_case_mview__0_1::prescriber_id
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Service Request Type
+    column_id: mv_tbl__pact_case_mview__0_1::service_request_type
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Sr Age
+    column_id: mv_tbl__pact_case_mview__0_1::sr_age
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+  - name: Apa External Notes
+    column_id: mv_tbl__pact_case_mview__0_1::apa_external_notes
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Closed Reason
+    column_id: mv_tbl__pact_case_mview__0_1::closed_reason
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Diagnosis Codes
+    column_id: mv_tbl__pact_case_mview__0_1::diagnosis_codes
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Enrollment Not Complete Reason
+    column_id: mv_tbl__pact_case_mview__0_1::enrollment_not_complete_reason
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Franchise Program
+    column_id: mv_tbl__pact_case_mview__0_1::franchise_program
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Gatcf Enrollment Date
+    column_id: mv_tbl__pact_case_mview__0_1::gatcf_enrollment_date
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+      calendar: calendar
+  - name: Gatcf Referral Reason
+    column_id: mv_tbl__pact_case_mview__0_1::gatcf_referral_reason
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Case Sf Id
+    column_id: mv_tbl__pact_case_mview__0_1::case_sf_id
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Casenumber
+    column_id: mv_tbl__pact_case_mview__0_1::casenumber
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Sr Status
+    column_id: mv_tbl__pact_case_mview__0_1::sr_status
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Sr Origin
+    column_id: mv_tbl__pact_case_mview__0_1::sr_origin
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Sr Last Modified Date
+    column_id: mv_tbl__pact_case_mview__0_1::sr_last_modified_date
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+      calendar: calendar
+  - name: Alternate Sot Group Npi
+    column_id: mv_tbl__pact_case_mview__0_1::alternate_sot_group_npi
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Anticipated Date Of Treatment
+    column_id: mv_tbl__pact_case_mview__0_1::anticipated_date_of_treatment
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+      calendar: calendar
+  - name: Date Of Treatment
+    column_id: mv_tbl__pact_case_mview__0_1::date_of_treatment
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+      calendar: calendar
+  - name: Non Mps Practice Name
+    column_id: mv_tbl__pact_case_mview__0_1::non_mps_practice_name
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Place Of Service
+    column_id: mv_tbl__pact_case_mview__0_1::place_of_service
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Portal Status
+    column_id: mv_tbl__pact_case_mview__0_1::portal_status
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Preferred Specialty Pharmacy
+    column_id: mv_tbl__pact_case_mview__0_1::preferred_specialty_pharmacy
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Prescription Type
+    column_id: mv_tbl__pact_case_mview__0_1::prescription_type
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Sr Priority
+    column_id: mv_tbl__pact_case_mview__0_1::sr_priority
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Sp Needed For Lucentis Dispensing
+    column_id: mv_tbl__pact_case_mview__0_1::sp_needed_for_lucentis_dispensing
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Sp Needed For Rituxan Or Actemra
+    column_id: mv_tbl__pact_case_mview__0_1::sp_needed_for_rituxan_or_actemra
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Specialty Pharmacy
+    column_id: mv_tbl__pact_case_mview__0_1::specialty_pharmacy
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Valid Documentation On File
+    column_id: mv_tbl__pact_case_mview__0_1::valid_documentation_on_file
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Starter Approved Denied Date
+    column_id: mv_tbl__pact_case_mview__0_1::starter_approved_denied_date
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+      calendar: calendar
+  - name: Starter Approved
+    column_id: mv_tbl__pact_case_mview__0_1::starter_approved
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Starter Denial Reason
+    column_id: mv_tbl__pact_case_mview__0_1::starter_denial_reason
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Enrollment Id
+    column_id: mv_tbl__pact_case_mview__0_1::enrollment_id
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Total Infusions
+    column_id: mv_tbl__pact_case_mview__0_1::total_infusions
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+  - name: Treatment Coordination Verbal Opt In
+    column_id: mv_tbl__pact_case_mview__0_1::treatment_coordination_verbal_opt_in
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Foundation Specialist
+    column_id: mv_tbl__pact_case_mview__0_1::foundation_specialist
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Age Days
+    column_id: mv_tbl__pact_case_mview__0_1::age_days
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+  - name: Abi Date
+    column_id: mv_tbl__pact_case_mview__0_1::abi_date
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+      calendar: calendar
+  - name: Abi Status
+    column_id: mv_tbl__pact_case_mview__0_1::abi_status
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Abi Attempts
+    column_id: mv_tbl__pact_case_mview__0_1::abi_attempts
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+  - name: Eligibility Reason
+    column_id: mv_tbl__pact_case_mview__0_1::eligibility_reason
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Eligibilty Date
+    column_id: mv_tbl__pact_case_mview__0_1::eligibilty_date
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+      calendar: calendar
+  - name: Milestone Id
+    column_id: mv_tbl__pact_case_mview__0_1::milestone_id
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Patient Foundation Eligibility Status
+    column_id: mv_tbl__pact_case_mview__0_1::patient_foundation_eligibility_status
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Region Foundation Manager
+    column_id: mv_tbl__pact_case_mview__0_1::region_foundation_manager
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Is Prior Authorization In Place
+    column_id: mv_tbl__pact_case_mview__0_1::is_prior_authorization_in_place
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Non Genentech Product S
+    column_id: mv_tbl__pact_case_mview__0_1::non_genentech_product_s
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Referred From Sr Id
+    column_id: mv_tbl__pact_case_mview__0_1::referred_from_sr_id
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Legacy Sot Name
+    column_id: mv_tbl__pact_case_mview__0_1::legacy_sot_name
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Enrollment Complete Flag
+    column_id: mv_tbl__pact_case_mview__0_1::enrollment_complete_flag
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Hcp City
+    column_id: mv_tbl__pact_case_mview__0_1::hcp_city
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Hcp State
+    column_id: mv_tbl__pact_case_mview__0_1::hcp_state
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Hcp Zip
+    column_id: mv_tbl__pact_case_mview__0_1::hcp_zip
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Primary Case Manager Sf Id
+    column_id: mv_tbl__pact_case_mview__0_1::primary_case_manager_sf_id
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Case Manager Name
+    column_id: mv_tbl__pact_case_mview__0_1::case_manager_name
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Foundation Specialist Name
+    column_id: mv_tbl__pact_case_mview__0_1::foundation_specialist_name
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Onlabel Offlabel Flag
+    column_id: mv_tbl__pact_case_mview__0_1::onlabel_offlabel_flag
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Sr Closed Date
+    column_id: mv_tbl__pact_case_mview__0_1::sr_closed_date
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+      calendar: calendar
+  - name: Frm Practice Name
+    column_id: mv_tbl__pact_case_mview__0_1::frm_practice_name
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Ecosystem Name
+    column_id: mv_tbl__pact_case_mview__0_1::ecosystem_name
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Ai Status
+    column_id: mv_tbl__pact_case_mview__0_1::ai_status
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Site Of Treatment Name
+    column_id: mv_tbl__pact_case_mview__0_1::site_of_treatment_name
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Site Of Treatment City
+    column_id: mv_tbl__pact_case_mview__0_1::site_of_treatment_city
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Site Of Treatment Street
+    column_id: mv_tbl__pact_case_mview__0_1::site_of_treatment_street
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Site Of Treatment State
+    column_id: mv_tbl__pact_case_mview__0_1::site_of_treatment_state
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Site Of Treatment Postalcode
+    column_id: mv_tbl__pact_case_mview__0_1::site_of_treatment_postalcode
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Sr Origin Digital Type
+    column_id: mv_tbl__pact_case_mview__0_1::sr_origin_digital_type
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Pan Expiration Date
+    column_id: patient_latest_parquet_1::pan_expiration_date
+    properties:
+      column_type: ATTRIBUTE
+  - name: Patient Created Date
+    column_id: patient_latest_parquet_1::created_date
+    properties:
+      column_type: ATTRIBUTE
+  - name: Is Gatcf Active
+    column_id: patient_latest_parquet_1::is_gatcf_active
+    properties:
+      column_type: ATTRIBUTE
+  - name: Patient Id
+    column_id: patient_latest_parquet_1::patient_id
+    properties:
+      column_type: ATTRIBUTE
+  - name: Patient Sf Id
+    column_id: patient_latest_parquet_1::patient_sf_id
+    properties:
+      column_type: ATTRIBUTE
+  - name: Active Site Of Treatment City
+    column_id: patient_latest_parquet_1::site_of_treatment_city
+    properties:
+      column_type: ATTRIBUTE
+  - name: Active Site Of Treatment Street
+    column_id: patient_latest_parquet_1::site_of_treatment_street
+    properties:
+      column_type: ATTRIBUTE
+  - name: Active Site Of Treatment State
+    column_id: patient_latest_parquet_1::site_of_treatment_state
+    properties:
+      column_type: ATTRIBUTE
+  - name: Active Site Of Treatment Postalcode
+    column_id: patient_latest_parquet_1::site_of_treatment_postalcode
+    properties:
+      column_type: ATTRIBUTE
+  - name: Consent Only Patient
+    column_id: patient_latest_parquet_1::consent_only_patient
+    properties:
+      column_type: ATTRIBUTE
+  - name: Status
+    column_id: pact_sr_activity_latest_1::status
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Closed Date
+    column_id: pact_sr_activity_latest_1::closed_date
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Due Date
+    column_id: pact_sr_activity_latest_1::due_date
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Activity Date
+    column_id: pact_sr_activity_latest_1::activity_date
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Activity Type
+    column_id: pact_sr_activity_latest_1::activity_type
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Customer Type
+    column_id: pact_sr_activity_latest_1::customer_type
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Tat Type
+    column_id: pact_case_tat_latest_1::tat_type
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: R2cn Tat Startdate
+    column_id: pact_case_tat_latest_1::r2cn_tat_startdate
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: R2cn Tat Enddate
+    column_id: pact_case_tat_latest_1::r2cn_tat_enddate
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: R2cn Tat
+    column_id: pact_case_tat_latest_1::r2cn_tat
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Bi Tat Startdate
+    column_id: pact_case_tat_latest_1::bi_tat_startdate
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Entire Bi Tat Enddate
+    column_id: pact_case_tat_latest_1::entire_bi_tat_enddate
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Entire Bi Tat
+    column_id: pact_case_tat_latest_1::entire_bi_tat
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Standard Bi Tat Enddate
+    column_id: pact_case_tat_latest_1::standard_bi_tat_enddate
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Standard Bi Tat
+    column_id: pact_case_tat_latest_1::standard_bi_tat
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Sr Doc Sf Id
+    column_id: pact_sr_document_latest_1::sr_doc_sf_id
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Doc Sr Sf Id
+    column_id: pact_sr_document_latest_1::doc_sr_sf_id
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Document Sf Id
+    column_id: pact_document_latest_1::document_sf_id
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Document Created Date
+    column_id: pact_document_latest_1::created_date
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Copay Assistance Sf Id
+    column_id: pact_co_pay_assistance_latest_1::copay_assistance_sf_id
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Copay Createddate
+    column_id: pact_co_pay_assistance_latest_1::copay_createddate
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Caf Disease State
+    column_id: pact_co_pay_assistance_latest_1::caf_disease_state
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Copay Card Program Name
+    column_id: pact_co_pay_assistance_latest_1::copay_card_program_name
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Copay Card Type
+    column_id: pact_co_pay_assistance_latest_1::copay_card_type
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Co Pay Type
+    column_id: pact_co_pay_assistance_latest_1::co_pay_type
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Reason For Selecting Caf
+    column_id: pact_co_pay_assistance_latest_1::reason_for_selecting_caf
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Copay Status
+    column_id: pact_co_pay_assistance_latest_1::status
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: In Network Sp
+    column_id: pact_fulfillment_latest_1::in_network_sp
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Out Of Network Sp
+    column_id: pact_fulfillment_latest_1::out_of_network_sp
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Date Of First Commercial Shipment
+    column_id: pact_fulfillment_latest_1::date_of_first_commercial_shipment
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Date Of Sp Triage Referral
+    column_id: pact_fulfillment_latest_1::date_of_sp_triage_referral
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Fulfilled By
+    column_id: pact_fulfillment_latest_1::fulfilled_by
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Fulfillment Status
+    column_id: pact_fulfillment_latest_1::fulfillment_status
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Reason Treatment Not Started
+    column_id: pact_fulfillment_latest_1::reason_treatment_not_started
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Reason For Selecting Sp
+    column_id: pact_fulfillment_latest_1::reason_for_selecting_sp
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: '# of SR''s'
+    formula_id: '# of SR''s'
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+  - name: '# of Patients'
+    formula_id: '# of Patients'
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+  - name: '# of BI''s'
+    formula_id: '# of BI''s'
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+  - name: '# of Activities'
+    formula_id: '# of Activities'
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+  - name: '# of Copay''s'
+    formula_id: '# of Copay''s'
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+  - name: '# of Fulfillment''s'
+    formula_id: '# of Fulfillment''s'
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+  - name: Service Type
+    column_id: mv_tbl__pact_case_mview__0_1::service_type
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Therapeutic Area
+    column_id: mv_tbl__pact_case_mview__0_1::therapeutic_area
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Product
+    column_id: mv_tbl__pact_case_mview__0_1::product
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  - name: Territory Ase Pioneer Pod
+    column_id: mv_tbl__pact_case_mview__0_1::territory_ase_pioneer_pod
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+  properties:
+    is_bypass_rls: false
+    join_progressive: true

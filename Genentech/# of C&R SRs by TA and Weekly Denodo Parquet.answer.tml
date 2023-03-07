@@ -1,0 +1,40 @@
+guid: be1d016d-ee19-4ee4-9f32-4ac2477220f9
+answer:
+  name: '# of C&R SRs by TA and Weekly Denodo Parquet'
+  tables:
+  - id: AS Master Denodo POC (Parquet)
+    name: AS Master Denodo POC (Parquet)
+    fqn: 37ddc465-36eb-40ea-a756-e51fbde2c822
+  search_query: "[Therapeutic Area] [Service Type].C&R [Sr Created Date].weekly [# of SR's]"
+  answer_columns:
+  - name: Therapeutic Area
+  - name: Week(Sr Created Date)
+  - name: '# of SR''s'
+  table:
+    table_columns:
+    - column_id: Therapeutic Area
+      show_headline: false
+    - column_id: Week(Sr Created Date)
+      show_headline: false
+    - column_id: '# of SR''s'
+      show_headline: false
+    ordered_column_ids:
+    - Therapeutic Area
+    - Week(Sr Created Date)
+    - '# of SR''s'
+    client_state: ""
+    client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+  chart:
+    type: LINE
+    chart_columns:
+    - column_id: Therapeutic Area
+    - column_id: Week(Sr Created Date)
+    - column_id: '# of SR''s'
+    axis_configs:
+    - x:
+      - Week(Sr Created Date)
+      "y":
+      - '# of SR''s'
+    client_state: ""
+    client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"responsiveLayoutPreference\": \"AUTO_ON\",\"chartSpecific\": {}},\"axisProperties\": [{\"id\": \"a4fc4d80-c5cd-4d3b-b68a-dcf64af8ba12\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"# of SR\\'s\"],\"isOpposite\": false}},{\"id\": \"f04f3b15-154e-4f78-960a-2aaa23631690\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"Week(Sr Created Date)\"]}}],\"systemSeriesColors\": [{\"serieName\": \"# of SR\\'s\",\"color\": \"#FCC838\"}]}"
+  display_mode: CHART_MODE

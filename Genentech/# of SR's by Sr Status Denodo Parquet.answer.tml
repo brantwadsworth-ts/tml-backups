@@ -1,0 +1,35 @@
+guid: 8ecdbf94-8c59-4cdb-bc19-9ee52e07082b
+answer:
+  name: '# of SR''s by Sr Status Denodo Parquet'
+  tables:
+  - id: AS Master Denodo POC (Parquet)
+    name: AS Master Denodo POC (Parquet)
+    fqn: 37ddc465-36eb-40ea-a756-e51fbde2c822
+  search_query: "[# of SR's] [Sr Status]"
+  answer_columns:
+  - name: '# of SR''s'
+  - name: Sr Status
+  table:
+    table_columns:
+    - column_id: Sr Status
+      show_headline: false
+    - column_id: '# of SR''s'
+      show_headline: false
+    ordered_column_ids:
+    - Sr Status
+    - '# of SR''s'
+    client_state: ""
+    client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+  chart:
+    type: COLUMN
+    chart_columns:
+    - column_id: Sr Status
+    - column_id: '# of SR''s'
+    axis_configs:
+    - x:
+      - Sr Status
+      "y":
+      - '# of SR''s'
+    client_state: ""
+    client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"responsiveLayoutPreference\": \"AUTO_ON\",\"chartSpecific\": {}},\"axisProperties\": [{\"id\": \"4d7c1b7d-304a-4c24-b193-8a02c5af81b2\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"# of SR\\'s\"],\"isOpposite\": false}},{\"id\": \"2c091fbf-f407-4e7b-a48a-14606475b67f\",\"properties\": {\"axisType\": \"X\",\"linkedColumns\": [\"Sr Status\"]}}],\"systemSeriesColors\": [{\"serieName\": \"# of SR\\'s\",\"color\": \"#8C62F5\"}]}"
+  display_mode: CHART_MODE

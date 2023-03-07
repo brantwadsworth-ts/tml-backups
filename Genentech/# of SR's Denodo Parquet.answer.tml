@@ -1,0 +1,28 @@
+guid: b28db0f6-8c6e-4842-97b1-6eb1e1328048
+answer:
+  name: '# of SR''s Denodo Parquet'
+  tables:
+  - id: AS Master Denodo POC (Parquet)
+    name: AS Master Denodo POC (Parquet)
+    fqn: 37ddc465-36eb-40ea-a756-e51fbde2c822
+  search_query: "[# of SR's]"
+  answer_columns:
+  - name: '# of SR''s'
+  table:
+    table_columns:
+    - column_id: '# of SR''s'
+      show_headline: false
+    ordered_column_ids:
+    - '# of SR''s'
+    client_state: ""
+    client_state_v2: "{\"tableVizPropVersion\": \"V1\"}"
+  chart:
+    type: KPI
+    chart_columns:
+    - column_id: '# of SR''s'
+    axis_configs:
+    - "y":
+      - '# of SR''s'
+    client_state: ""
+    client_state_v2: "{\"version\": \"V4DOT2\",\"chartProperties\": {\"chartSpecific\": {}},\"axisProperties\": [{\"id\": \"0eea2a81-8f8f-4763-8509-b23d15c976f7\",\"properties\": {\"axisType\": \"Y\",\"linkedColumns\": [\"# of SR\\'s\"],\"isOpposite\": false}},{\"id\": \"ae80819a-bdf3-4cd0-a252-8fa1b252f909\",\"properties\": {\"axisType\": \"X\"}}]}"
+  display_mode: CHART_MODE

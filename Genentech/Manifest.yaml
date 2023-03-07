@@ -1,0 +1,304 @@
+object:
+- name: '# of C&R SRs by TA and Weekly Denodo Parquet'
+  filename: '# of C&R SRs by TA and Weekly Denodo Parquet.answer.tml'
+  status:
+    status_code: OK
+  type: answer
+  id: be1d016d-ee19-4ee4-9f32-4ac2477220f9
+  dependency:
+  - name: AS Master Denodo POC (Parquet)
+    filename: AS Master Denodo POC (Parquet).worksheet.tml
+  - name: mv_tbl__pact_case_mview__0
+    filename: mv_tbl__pact_case_mview__0.table.tml
+  - name: patient_latest_parquet
+    filename: patient_latest_parquet.table.tml
+  - name: pact_fulfillment_latest
+    filename: pact_fulfillment_latest.table.tml
+  - name: pact_benefitinvestigation_latest
+    filename: pact_benefitinvestigation_latest.table.tml
+  - name: pact_case_tat_latest
+    filename: pact_case_tat_latest.table.tml
+  - name: pact_co_pay_assistance_latest
+    filename: pact_co_pay_assistance_latest.table.tml
+  - name: pact_sr_activity_latest
+    filename: pact_sr_activity_latest.table.tml
+  - name: pact_document_latest
+    filename: pact_document_latest.table.tml
+  - name: pact_sr_document_latest
+    filename: pact_sr_document_latest.table.tml
+- name: Ocrevus Patient Quarterly Denodo Paruqet
+  filename: Ocrevus Patient Quarterly Denodo Paruqet.answer.tml
+  status:
+    status_code: OK
+  type: answer
+  id: 6688e799-a46e-4454-8d60-0d516401995b
+  dependency:
+  - name: AS Master Denodo POC (Parquet)
+    filename: AS Master Denodo POC (Parquet).worksheet.tml
+  - name: mv_tbl__pact_case_mview__0
+    filename: mv_tbl__pact_case_mview__0.table.tml
+  - name: patient_latest_parquet
+    filename: patient_latest_parquet.table.tml
+  - name: pact_fulfillment_latest
+    filename: pact_fulfillment_latest.table.tml
+  - name: pact_benefitinvestigation_latest
+    filename: pact_benefitinvestigation_latest.table.tml
+  - name: pact_case_tat_latest
+    filename: pact_case_tat_latest.table.tml
+  - name: pact_co_pay_assistance_latest
+    filename: pact_co_pay_assistance_latest.table.tml
+  - name: pact_sr_activity_latest
+    filename: pact_sr_activity_latest.table.tml
+  - name: pact_document_latest
+    filename: pact_document_latest.table.tml
+  - name: pact_sr_document_latest
+    filename: pact_sr_document_latest.table.tml
+- name: "# of SRs, Patients monthly by TA Denodo Parquet"
+  filename: "# of SRs, Patients monthly by TA Denodo Parquet.answer.tml"
+  status:
+    status_code: OK
+  type: answer
+  id: d3ead7f0-7e81-4a7f-ad59-eb984cd70861
+  dependency:
+  - name: AS Master Denodo POC (Parquet)
+    filename: AS Master Denodo POC (Parquet).worksheet.tml
+  - name: mv_tbl__pact_case_mview__0
+    filename: mv_tbl__pact_case_mview__0.table.tml
+  - name: patient_latest_parquet
+    filename: patient_latest_parquet.table.tml
+  - name: pact_fulfillment_latest
+    filename: pact_fulfillment_latest.table.tml
+  - name: pact_benefitinvestigation_latest
+    filename: pact_benefitinvestigation_latest.table.tml
+  - name: pact_case_tat_latest
+    filename: pact_case_tat_latest.table.tml
+  - name: pact_co_pay_assistance_latest
+    filename: pact_co_pay_assistance_latest.table.tml
+  - name: pact_sr_activity_latest
+    filename: pact_sr_activity_latest.table.tml
+  - name: pact_document_latest
+    filename: pact_document_latest.table.tml
+  - name: pact_sr_document_latest
+    filename: pact_sr_document_latest.table.tml
+- name: C&R Ocrevus Patients Quarterly by SOT State Denodo Parquet
+  filename: C&R Ocrevus Patients Quarterly by SOT State Denodo Parquet.answer.tml
+  status:
+    status_code: OK
+  type: answer
+  id: 58522a4b-c776-4fff-a939-ac902753b156
+  dependency:
+  - name: AS Master Denodo POC (Parquet)
+    filename: AS Master Denodo POC (Parquet).worksheet.tml
+  - name: mv_tbl__pact_case_mview__0
+    filename: mv_tbl__pact_case_mview__0.table.tml
+  - name: patient_latest_parquet
+    filename: patient_latest_parquet.table.tml
+  - name: pact_fulfillment_latest
+    filename: pact_fulfillment_latest.table.tml
+  - name: pact_benefitinvestigation_latest
+    filename: pact_benefitinvestigation_latest.table.tml
+  - name: pact_case_tat_latest
+    filename: pact_case_tat_latest.table.tml
+  - name: pact_co_pay_assistance_latest
+    filename: pact_co_pay_assistance_latest.table.tml
+  - name: pact_sr_activity_latest
+    filename: pact_sr_activity_latest.table.tml
+  - name: pact_document_latest
+    filename: pact_document_latest.table.tml
+  - name: pact_sr_document_latest
+    filename: pact_sr_document_latest.table.tml
+- name: '# of C&R Patients by TA and Weekly Denodo Parquet'
+  filename: '# of C&R Patients by TA and Weekly Denodo Parquet.answer.tml'
+  status:
+    status_code: OK
+  type: answer
+  id: c111340e-fe20-401b-b859-eefa00c030fe
+  dependency:
+  - name: AS Master Denodo POC (Parquet)
+    filename: AS Master Denodo POC (Parquet).worksheet.tml
+  - name: mv_tbl__pact_case_mview__0
+    filename: mv_tbl__pact_case_mview__0.table.tml
+  - name: patient_latest_parquet
+    filename: patient_latest_parquet.table.tml
+  - name: pact_fulfillment_latest
+    filename: pact_fulfillment_latest.table.tml
+  - name: pact_benefitinvestigation_latest
+    filename: pact_benefitinvestigation_latest.table.tml
+  - name: pact_case_tat_latest
+    filename: pact_case_tat_latest.table.tml
+  - name: pact_co_pay_assistance_latest
+    filename: pact_co_pay_assistance_latest.table.tml
+  - name: pact_sr_activity_latest
+    filename: pact_sr_activity_latest.table.tml
+  - name: pact_document_latest
+    filename: pact_document_latest.table.tml
+  - name: pact_sr_document_latest
+    filename: pact_sr_document_latest.table.tml
+- name: '# of C&R Patients by TA by Month Current Year Denodo Parquet'
+  filename: '# of C&R Patients by TA by Month Current Year Denodo Parquet.answer.tml'
+  status:
+    status_code: OK
+  type: answer
+  id: 46dafdf0-bab4-410b-9ae1-ae94fc57c473
+  dependency:
+  - name: AS Master Denodo POC (Parquet)
+    filename: AS Master Denodo POC (Parquet).worksheet.tml
+  - name: mv_tbl__pact_case_mview__0
+    filename: mv_tbl__pact_case_mview__0.table.tml
+  - name: patient_latest_parquet
+    filename: patient_latest_parquet.table.tml
+  - name: pact_fulfillment_latest
+    filename: pact_fulfillment_latest.table.tml
+  - name: pact_benefitinvestigation_latest
+    filename: pact_benefitinvestigation_latest.table.tml
+  - name: pact_case_tat_latest
+    filename: pact_case_tat_latest.table.tml
+  - name: pact_co_pay_assistance_latest
+    filename: pact_co_pay_assistance_latest.table.tml
+  - name: pact_sr_activity_latest
+    filename: pact_sr_activity_latest.table.tml
+  - name: pact_document_latest
+    filename: pact_document_latest.table.tml
+  - name: pact_sr_document_latest
+    filename: pact_sr_document_latest.table.tml
+- name: '# of C&R SRs by TA by Month Current Year Denodo Parquet'
+  filename: '# of C&R SRs by TA by Month Current Year Denodo Parquet.answer.tml'
+  status:
+    status_code: OK
+  type: answer
+  id: 10b2227c-6a36-4d7e-aabb-dbb7b680df62
+  dependency:
+  - name: AS Master Denodo POC (Parquet)
+    filename: AS Master Denodo POC (Parquet).worksheet.tml
+  - name: mv_tbl__pact_case_mview__0
+    filename: mv_tbl__pact_case_mview__0.table.tml
+  - name: patient_latest_parquet
+    filename: patient_latest_parquet.table.tml
+  - name: pact_fulfillment_latest
+    filename: pact_fulfillment_latest.table.tml
+  - name: pact_benefitinvestigation_latest
+    filename: pact_benefitinvestigation_latest.table.tml
+  - name: pact_case_tat_latest
+    filename: pact_case_tat_latest.table.tml
+  - name: pact_co_pay_assistance_latest
+    filename: pact_co_pay_assistance_latest.table.tml
+  - name: pact_sr_activity_latest
+    filename: pact_sr_activity_latest.table.tml
+  - name: pact_document_latest
+    filename: pact_document_latest.table.tml
+  - name: pact_sr_document_latest
+    filename: pact_sr_document_latest.table.tml
+- name: '# of SR''s by Sr Status Denodo Parquet'
+  filename: '# of SR''s by Sr Status Denodo Parquet.answer.tml'
+  status:
+    status_code: OK
+  type: answer
+  id: 8ecdbf94-8c59-4cdb-bc19-9ee52e07082b
+  dependency:
+  - name: AS Master Denodo POC (Parquet)
+    filename: AS Master Denodo POC (Parquet).worksheet.tml
+  - name: mv_tbl__pact_case_mview__0
+    filename: mv_tbl__pact_case_mview__0.table.tml
+  - name: patient_latest_parquet
+    filename: patient_latest_parquet.table.tml
+  - name: pact_fulfillment_latest
+    filename: pact_fulfillment_latest.table.tml
+  - name: pact_benefitinvestigation_latest
+    filename: pact_benefitinvestigation_latest.table.tml
+  - name: pact_case_tat_latest
+    filename: pact_case_tat_latest.table.tml
+  - name: pact_co_pay_assistance_latest
+    filename: pact_co_pay_assistance_latest.table.tml
+  - name: pact_sr_activity_latest
+    filename: pact_sr_activity_latest.table.tml
+  - name: pact_document_latest
+    filename: pact_document_latest.table.tml
+  - name: pact_sr_document_latest
+    filename: pact_sr_document_latest.table.tml
+- name: '# of SR''s Denodo Parquet'
+  filename: '# of SR''s Denodo Parquet.answer.tml'
+  status:
+    status_code: OK
+  type: answer
+  id: b28db0f6-8c6e-4842-97b1-6eb1e1328048
+  dependency:
+  - name: AS Master Denodo POC (Parquet)
+    filename: AS Master Denodo POC (Parquet).worksheet.tml
+  - name: mv_tbl__pact_case_mview__0
+    filename: mv_tbl__pact_case_mview__0.table.tml
+  - name: patient_latest_parquet
+    filename: patient_latest_parquet.table.tml
+  - name: pact_fulfillment_latest
+    filename: pact_fulfillment_latest.table.tml
+  - name: pact_benefitinvestigation_latest
+    filename: pact_benefitinvestigation_latest.table.tml
+  - name: pact_case_tat_latest
+    filename: pact_case_tat_latest.table.tml
+  - name: pact_co_pay_assistance_latest
+    filename: pact_co_pay_assistance_latest.table.tml
+  - name: pact_sr_activity_latest
+    filename: pact_sr_activity_latest.table.tml
+  - name: pact_document_latest
+    filename: pact_document_latest.table.tml
+  - name: pact_sr_document_latest
+    filename: pact_sr_document_latest.table.tml
+- name: AS Master Denodo POC (Parquet)
+  filename: AS Master Denodo POC (Parquet).worksheet.tml
+  status:
+    status_code: OK
+  type: worksheet
+  id: 37ddc465-36eb-40ea-a756-e51fbde2c822
+- name: mv_tbl__pact_case_mview__0
+  filename: mv_tbl__pact_case_mview__0.table.tml
+  status:
+    status_code: OK
+  type: table
+  id: 3bed7094-66f8-4762-b108-e3f80d45ec24
+- name: patient_latest_parquet
+  filename: patient_latest_parquet.table.tml
+  status:
+    status_code: OK
+  type: table
+  id: 4d629c34-aeff-447f-a052-d1301c7e10b9
+- name: pact_fulfillment_latest
+  filename: pact_fulfillment_latest.table.tml
+  status:
+    status_code: OK
+  type: table
+  id: a05b1d8b-9f58-48a0-b10f-b4b3abaaf6d1
+- name: pact_benefitinvestigation_latest
+  filename: pact_benefitinvestigation_latest.table.tml
+  status:
+    status_code: OK
+  type: table
+  id: ca0e8f5e-14f7-4e90-8bad-9fe832be087b
+- name: pact_case_tat_latest
+  filename: pact_case_tat_latest.table.tml
+  status:
+    status_code: OK
+  type: table
+  id: 42256f0f-afa4-4ddc-af30-ed99902d2a70
+- name: pact_co_pay_assistance_latest
+  filename: pact_co_pay_assistance_latest.table.tml
+  status:
+    status_code: OK
+  type: table
+  id: aa4fc9ed-90cc-4c6f-a95d-880f2f48813e
+- name: pact_sr_activity_latest
+  filename: pact_sr_activity_latest.table.tml
+  status:
+    status_code: OK
+  type: table
+  id: e5a88750-70d1-4bc9-a0bf-889cd45527d8
+- name: pact_document_latest
+  filename: pact_document_latest.table.tml
+  status:
+    status_code: OK
+  type: table
+  id: d4870306-c62a-439e-b509-51745a9298c2
+- name: pact_sr_document_latest
+  filename: pact_sr_document_latest.table.tml
+  status:
+    status_code: OK
+  type: table
+  id: fcd6c6a6-eb5c-4991-b4f4-cab54ccfca4d

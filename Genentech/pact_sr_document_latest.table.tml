@@ -1,0 +1,183 @@
+guid: fcd6c6a6-eb5c-4991-b4f4-cab54ccfca4d
+table:
+  name: pact_sr_document_latest
+  schema: poc
+  db_table: pact_sr_document_latest
+  connection:
+    name: Denodo POC
+    fqn: 9b2795a1-ae24-40f9-aae5-c1f9ad9f2851
+  columns:
+  - name: sr_doc_sf_id
+    db_column_name: sr_doc_sf_id
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: sr_doc_id
+    db_column_name: sr_doc_id
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: sr_doc_created_date
+    db_column_name: sr_doc_created_date
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: DATE_TIME
+  - name: sr_doc_createdby_name
+    db_column_name: sr_doc_createdby_name
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: sr_doc_last_modified_date
+    db_column_name: sr_doc_last_modified_date
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: DATE_TIME
+  - name: sr_doc_last_modifiedby_name
+    db_column_name: sr_doc_last_modifiedby_name
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: sr_doc_name
+    db_column_name: sr_doc_name
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: sr_doc_type
+    db_column_name: sr_doc_type
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: doc_sf_id
+    db_column_name: doc_sf_id
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: doc_sr_type
+    db_column_name: doc_sr_type
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: doc_sr_sf_id
+    db_column_name: doc_sr_sf_id
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: sr_doc_source
+    db_column_name: sr_doc_source
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: sr_doc_status
+    db_column_name: sr_doc_status
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: sr_sys_doc_faxed
+    db_column_name: sr_sys_doc_faxed
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: sr_doc_is_migrated
+    db_column_name: sr_doc_is_migrated
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: BOOL
+  - name: sr_doc_send_status
+    db_column_name: sr_doc_send_status
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: sr_doc_destination_fax_no
+    db_column_name: sr_doc_destination_fax_no
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: sr_doc_pae_review_status_on_hold
+    db_column_name: sr_doc_pae_review_status_on_hold
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: BOOL
+  - name: doc_lastmodified_date
+    db_column_name: doc_lastmodified_date
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: DATE_TIME
+  - name: systemmodstamp
+    db_column_name: systemmodstamp
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: num_of_sr_document
+    db_column_name: num_of_sr_document
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: INT32
+  - name: processing_date
+    db_column_name: processing_date
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  joins_with:
+  - name: SR Document-Document
+    destination:
+      name: pact_document_latest
+      fqn: d4870306-c62a-439e-b509-51745a9298c2
+    "on": "([pact_sr_document_latest::doc_sf_id] = [pact_document_latest::document_sf_id])"
+    type: INNER
+  - name: SR Document-CaseRS
+    destination:
+      name: redshiftpublic_pact_case_mview
+      fqn: b01fca3f-5d73-4d9e-bff0-a5841465acca
+    "on": "([pact_sr_document_latest::doc_sr_sf_id] = [redshiftpublic_pact_case_mview::case_sf_id])"
+    type: INNER
+  - name: SR Document-CaseRSP
+    destination:
+      name: mv_tbl__pact_case_mview__0
+      fqn: 3bed7094-66f8-4762-b108-e3f80d45ec24
+    "on": "[pact_sr_document_latest::doc_sr_sf_id] = [mv_tbl__pact_case_mview__0::case_sf_id]"
+    type: INNER

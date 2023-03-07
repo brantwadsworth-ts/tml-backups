@@ -1,0 +1,191 @@
+guid: a05b1d8b-9f58-48a0-b10f-b4b3abaaf6d1
+table:
+  name: pact_fulfillment_latest
+  schema: poc
+  db_table: pact_fulfillment_latest
+  connection:
+    name: Denodo POC
+    fqn: 9b2795a1-ae24-40f9-aae5-c1f9ad9f2851
+  columns:
+  - name: fulfillment_sf_id
+    db_column_name: fulfillment_sf_id
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: ff_unique_sf_id
+    db_column_name: ff_unique_sf_id
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: fulfillment_id
+    db_column_name: fulfillment_id
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: in_network_sp
+    db_column_name: in_network_sp
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: out_of_network_sp
+    db_column_name: out_of_network_sp
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: service_request_id
+    db_column_name: service_request_id
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: date_of_first_commercial_shipment
+    db_column_name: date_of_first_commercial_shipment
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: date_of_sp_triage_referral
+    db_column_name: date_of_sp_triage_referral
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: fulfilled_by
+    db_column_name: fulfilled_by
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: fulfillment_status
+    db_column_name: fulfillment_status
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: in_network_sp_contact_name
+    db_column_name: in_network_sp_contact_name
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: in_network_sp_fax
+    db_column_name: in_network_sp_fax
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: in_network_sp_phone
+    db_column_name: in_network_sp_phone
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: out_of_network_sp_contact_name
+    db_column_name: out_of_network_sp_contact_name
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: out_of_network_sp_fax
+    db_column_name: out_of_network_sp_fax
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: out_of_network_sp_phone
+    db_column_name: out_of_network_sp_phone
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: reason_treatment_not_started
+    db_column_name: reason_treatment_not_started
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: reason_for_selecting_sp
+    db_column_name: reason_for_selecting_sp
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: systemmodstamp
+    db_column_name: systemmodstamp
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: processing_date
+    db_column_name: processing_date
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: num_of_fulfillment
+    db_column_name: num_of_fulfillment
+    properties:
+      column_type: MEASURE
+      aggregation: SUM
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: INT32
+  - name: aic_exception
+    db_column_name: aic_exception
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: sp_exception
+    db_column_name: sp_exception
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  - name: created_date
+    db_column_name: created_date
+    properties:
+      column_type: ATTRIBUTE
+      index_type: DONT_INDEX
+    db_column_properties:
+      data_type: VARCHAR
+  joins_with:
+  - name: Fulfillment-CaseRSP
+    destination:
+      name: mv_tbl__pact_case_mview__0
+      fqn: 3bed7094-66f8-4762-b108-e3f80d45ec24
+    "on": "[pact_fulfillment_latest::service_request_id] = [mv_tbl__pact_case_mview__0::case_sf_id]"
+    type: INNER
+  - name: Fulfillment-CaseRS
+    destination:
+      name: redshiftpublic_pact_case_mview
+      fqn: b01fca3f-5d73-4d9e-bff0-a5841465acca
+    "on": "([pact_fulfillment_latest::service_request_id] = [redshiftpublic_pact_case_mview::case_sf_id])"
+    type: INNER
